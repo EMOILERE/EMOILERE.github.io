@@ -55,12 +55,6 @@
       border: 1px solid var(--rule);
       display: block;
     }
-    header.intro .portrait img.logo {
-      width: 200px;
-      height: auto;
-      margin-top: 12px;
-      display: block;
-    }
     header.intro .info { flex: 1 1 auto; }
     header.intro h1 {
       font-size: 28px;
@@ -68,12 +62,21 @@
       margin: 0 0 4px 0;
       letter-spacing: 0.2px;
       color: var(--text);
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
     }
     header.intro h1 .cn {
       font-size: 20px;
       font-weight: 500;
       color: var(--text-soft);
-      margin-left: 6px;
+    }
+    header.intro h1 .logo-inline {
+      height: 38px;
+      width: auto;
+      vertical-align: middle;
+      display: inline-block;
     }
     header.intro .affil { color: var(--text); margin-bottom: 14px; }
     header.intro .affil .role { color: var(--text-soft); }
@@ -162,6 +165,8 @@
     .pub .meta .authors { color: var(--text); }
     .pub .meta .me { font-weight: 700; text-decoration: underline; }
     .pub .meta .corr { font-weight: 700; }
+    .pub .meta .cofirst { color: var(--accent); font-weight: 700; }
+    .pub .meta sup.cofirst { font-size: 12px; color: var(--accent); font-weight: 700; margin-left: 1px; }
     .pub .meta .venue { font-style: italic; color: var(--text-soft); display: block; margin: 3px 0; }
     .pub .meta .badge {
       display: inline-block;
@@ -228,9 +233,10 @@
     @media (max-width: 680px) {
       header.intro { flex-direction: column; gap: 18px; }
       header.intro .portrait,
-      header.intro .portrait img.photo,
-      header.intro .portrait img.logo { width: 160px; }
+      header.intro .portrait img.photo { width: 160px; }
       header.intro .portrait img.photo { height: 192px; }
+      header.intro h1 { font-size: 24px; gap: 8px; }
+      header.intro h1 .logo-inline { height: 30px; }
       .pub { flex-direction: column; gap: 10px; }
       .pub .teaser, .pub .teaser img { width: 100%; }
       .pub .teaser img { height: auto; aspect-ratio: 16/10; }
@@ -247,10 +253,9 @@
     <header class="intro">
       <div class="portrait">
         <img class="photo" src="assets/photo.jpg" alt="Yutong Wang" />
-        <img class="logo" src="assets/lanzhouuniversity.jpeg" alt="Lanzhou University" />
       </div>
       <div class="info">
-        <h1>Yutong Wang <span class="cn">王宇彤</span></h1>
+        <h1>Yutong Wang <span class="cn">王宇彤</span> <img class="logo-inline" src="assets/lanzhouuniversity.jpeg" alt="Lanzhou University" title="Lanzhou University" /></h1>
         <div class="affil">
           <span class="role">Undergraduate Researcher,</span><br/>
           School of Information Science and Engineering,<br/>
@@ -275,7 +280,7 @@
     <!-- ============== BIO ============== -->
     <div class="bio">
       <p>
-        I am a senior undergraduate student in <span class="highlight">Computer Science and Technology</span>
+        I am a third-year undergraduate student in <span class="highlight">Computer Science and Technology</span>
         at <a href="https://en.lzu.edu.cn/">Lanzhou University</a>, fortunate to be advised by
         <a href="https://github.com/kanglzu">Associate Prof. Zhongfeng Kang</a>.
         My research lies at the intersection of <span class="highlight">trustworthy deep learning</span>
@@ -285,9 +290,10 @@
       </p>
       <p>
         To date, I have authored or co-authored <span class="highlight">8 SCI-indexed manuscripts</span>,
-        including <span class="highlight">5 first-author submissions to SCI&nbsp;Q1 journals</span>
+        including <span class="highlight">5 first-author or co-first-author submissions to SCI&nbsp;Q1 journals</span>
         (4 already published or accepted in <i>Neurocomputing</i>, <i>Expert Systems with Applications</i>,
-        and <i>Knowledge-Based Systems</i>). I have also served as a core member of two
+        and <i>Knowledge-Based Systems</i>), and <span class="highlight">3 invention patents</span>
+        under substantive examination. I have also served as a core member of two
         National-Level College Student Innovation and Entrepreneurship Programs.
       </p>
       <p>
@@ -333,10 +339,13 @@
     <!-- ============== PUBLICATIONS ============== -->
     <h2 class="section">Publications</h2>
     <p style="font-size: 13.5px; color: var(--text-soft); margin-top: -4px;">
-      <span class="me" style="font-weight:700;text-decoration:underline;">Underlined</span> name denotes mine;
-      <span class="corr">bold</span> name denotes corresponding author;
-      <sup>*</sup> denotes equal contribution.
-      The full list of papers is available on
+      <span class="me" style="font-weight:700;text-decoration:underline;">Underlined</span> name denotes mine
+      &nbsp;·&nbsp;
+      <span class="corr">Bold</span> name denotes corresponding author
+      &nbsp;·&nbsp;
+      <sup class="cofirst" style="color:var(--accent);font-weight:700;">*</sup>
+      <span style="color:var(--accent);font-weight:600;">denotes co-first / equal contribution</span>.
+      Full list available on
       <a href="https://scholar.google.com/citations?hl=en&amp;authuser=1&amp;user=73MjwF0AAAAJ">Google Scholar</a>.
     </p>
 
@@ -390,7 +399,7 @@
       <div class="teaser"><img src="assets/paper_figure/when_comments/pipeline.png" alt="ICL-DiTox pipeline" /></div>
       <div class="meta">
         <span class="title">When Comments Aren&rsquo;t What They Seem: The Social Media Comment Toxicity Detector for Understanding Contextual Comments</span>
-        <span class="authors">Zichen Song, Xiaopeng Fan, <span class="me">Yutong Wang</span>, Feixuan Yan, Zijin Wu, <span class="corr">Zhongfeng Kang</span>.</span>
+        <span class="authors">Zichen Song<sup class="cofirst">*</sup>, Xiaopeng Fan, <span class="me">Yutong Wang</span><sup class="cofirst">*</sup>, Feixuan Yan, Zijin Wu, <span class="corr">Zhongfeng Kang</span>. <span class="cofirst" style="font-size:12.5px;">(<sup>*</sup>Co-first authors)</span></span>
         <span class="venue"><i>Expert Systems with Applications</i>, Vol. 305, 130902, 2026.</span>
         <span class="badge q1">SCI Q1 Top &middot; IF 7.5</span>
         <span class="links">
@@ -449,6 +458,35 @@
         <div class="outcome">Outcomes: Macro-F1 82.56% on COLDataset &middot; +4.8% over Perspective API on YouTube &middot; 2 ESWA Q1 Top papers &middot; 1 patent.</div>
       </div>
     </div>
+
+    <!-- ============== PATENTS ============== -->
+    <h2 class="section">Patents</h2>
+    <p style="font-size: 13.5px; color: var(--text-soft); margin-top: -4px;">
+      Three invention patents in total, all currently <i>under substantive examination</i> at the China National Intellectual Property Administration (CNIPA).
+    </p>
+    <table class="awards">
+      <tr>
+        <td class="level">Under Examination</td>
+        <td>
+          A Method and System for Context-Aware Multi-Modal Toxicity Detection of Social Media Comments.
+          <span class="cn">一种社交媒体评论的多模态上下文感知毒性检测方法及系统 · 发明专利（实质审查中）</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="level">Under Examination</td>
+        <td>
+          A Method for Explainable 3D Multi-Modal Brain Tumor Segmentation Based on Hierarchical Multi-Prior Fusion.
+          <span class="cn">一种基于层次化多先验融合的可解释三维多模态脑肿瘤分割方法 · 发明专利（实质审查中）</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="level">Under Examination</td>
+        <td>
+          A Role-Decoupled Multi-Agent Collaboration Method for Vertical-Domain Workflow Applications.
+          <span class="cn">一种面向垂直领域工作流的角色解耦多智能体协同方法 · 发明专利（实质审查中）</span>
+        </td>
+      </tr>
+    </table>
 
     <!-- ============== EDUCATION ============== -->
     <h2 class="section">Education</h2>
