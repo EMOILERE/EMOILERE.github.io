@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yutong Wang &mdash; Lanzhou University</title>
+  <meta name="description" content="Personal homepage of Yutong Wang, undergraduate researcher at Lanzhou University, working on Agentic AI, Explainability Analysis, AI4Science, and 3D Computer Vision." />
+  <meta name="author" content="Yutong Wang" />
+  <link rel="icon" type="image/jpeg" href="assets/photo.jpg" />
+  <style>
+    :root {
+      --text:         #202124;
+      --text-soft:    #5f6368;
+      --muted:        #80868b;
+      --bg:           #ffffff;
+      --rule:         #e8eaed;
+      --link:         #1a5fb4;
+      --link-hover:   #0d3a73;
+      --accent:       #b00020;
+      --max-w:        860px;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      padding: 0 20px;
+      font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      font-size: 15.5px;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: var(--max-w); margin: 0 auto; padding: 36px 0 60px; }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { color: var(--link-hover); text-decoration: underline; }
+    hr { border: none; border-top: 1px solid var(--rule); margin: 30px 0; }
+    p { margin: 0 0 12px 0; }
+
+    /* ---------- header ---------- */
+    header.intro {
+      display: flex;
+      gap: 28px;
+      align-items: flex-start;
+      margin-bottom: 14px;
+    }
+    header.intro .portrait {
+      flex: 0 0 200px;
+    }
+    header.intro .portrait img.photo {
+      width: 200px;
+      height: 240px;
+      object-fit: cover;
+      border: 1px solid var(--rule);
+      display: block;
+    }
+    header.intro .portrait img.logo {
+      width: 200px;
+      height: auto;
+      margin-top: 12px;
+      display: block;
+    }
+    header.intro .info { flex: 1 1 auto; }
+    header.intro h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 0 0 4px 0;
+      letter-spacing: 0.2px;
+      color: var(--text);
+    }
+    header.intro h1 .cn {
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--text-soft);
+      margin-left: 6px;
+    }
+    header.intro .affil { color: var(--text); margin-bottom: 14px; }
+    header.intro .affil .role { color: var(--text-soft); }
+    header.intro .contact {
+      font-size: 14.5px;
+      color: var(--text-soft);
+      line-height: 1.9;
+    }
+    header.intro .contact .lbl {
+      display: inline-block;
+      min-width: 92px;
+      color: var(--muted);
+    }
+    header.intro .links {
+      margin-top: 10px;
+      font-size: 14.5px;
+    }
+    header.intro .links a { margin-right: 4px; }
+    header.intro .links .sep { color: var(--muted); margin: 0 6px; }
+
+    /* ---------- sections ---------- */
+    h2.section {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 36px 0 16px 0;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--rule);
+      color: var(--text);
+      letter-spacing: 0.2px;
+    }
+    h3.year {
+      font-size: 16px;
+      font-weight: 700;
+      margin: 22px 0 10px 0;
+      color: var(--text);
+    }
+
+    /* ---------- bio ---------- */
+    .bio p { margin: 0 0 12px 0; }
+    .bio .highlight { color: var(--text); font-weight: 600; }
+
+    /* ---------- news ---------- */
+    .news {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14.5px;
+    }
+    .news td {
+      padding: 6px 10px 6px 0;
+      vertical-align: top;
+    }
+    .news td.date {
+      width: 110px;
+      color: var(--muted);
+      font-style: italic;
+      white-space: nowrap;
+    }
+    .news .new { color: var(--accent); font-weight: 600; margin-right: 4px; }
+
+    /* ---------- publications ---------- */
+    .pub {
+      display: flex;
+      gap: 18px;
+      margin: 0 0 22px 0;
+      align-items: flex-start;
+    }
+    .pub .teaser {
+      flex: 0 0 200px;
+    }
+    .pub .teaser img {
+      width: 200px;
+      height: 125px;
+      object-fit: contain;
+      object-position: center;
+      background: #f7f8fa;
+      border: 1px solid var(--rule);
+      display: block;
+    }
+    .pub .meta { flex: 1 1 auto; font-size: 14.5px; line-height: 1.55; }
+    .pub .meta .title {
+      font-weight: 700;
+      color: var(--text);
+      display: block;
+      margin-bottom: 3px;
+    }
+    .pub .meta .authors { color: var(--text); }
+    .pub .meta .me { font-weight: 700; text-decoration: underline; }
+    .pub .meta .corr { font-weight: 700; }
+    .pub .meta .venue { font-style: italic; color: var(--text-soft); display: block; margin: 3px 0; }
+    .pub .meta .badge {
+      display: inline-block;
+      font-size: 12px;
+      padding: 1px 7px;
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      color: var(--text-soft);
+      margin-right: 6px;
+    }
+    .pub .meta .badge.q1 { color: #0d3a73; border-color: #cdd9ee; background: #f5f8fd; }
+    .pub .meta .badge.accepted { color: #5a3500; border-color: #f0d8a0; background: #fdf6e7; }
+    .pub .meta .links a { margin-right: 8px; }
+    .pub .meta .tldr { color: var(--text-soft); font-size: 13.5px; margin-top: 4px; display: block; }
+
+    /* ---------- projects / lists ---------- */
+    .proj { display: flex; gap: 18px; margin-bottom: 20px; align-items: flex-start; }
+    .proj .when {
+      flex: 0 0 150px;
+      color: var(--muted);
+      font-style: italic;
+      font-size: 14px;
+    }
+    .proj .body { flex: 1 1 auto; font-size: 14.5px; }
+    .proj .body .ptitle { font-weight: 700; color: var(--text); }
+    .proj .body .ptag { color: var(--text-soft); font-size: 13.5px; display: block; margin: 2px 0 6px 0; }
+    .proj .body .outcome { color: var(--text-soft); font-size: 13.5px; }
+
+    .awards { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+    .awards td { padding: 5px 10px 5px 0; vertical-align: top; }
+    .awards td.level {
+      width: 130px;
+      color: var(--muted);
+      font-style: italic;
+      white-space: nowrap;
+    }
+    .awards .cn { color: var(--muted); font-size: 13px; display: block; margin-top: 1px; }
+
+    .interests { padding-left: 22px; margin: 8px 0; }
+    .interests li { margin-bottom: 6px; }
+
+    /* ---------- advisor ---------- */
+    .advisor { display: flex; gap: 18px; align-items: flex-start; font-size: 14.5px; }
+    .advisor .body { flex: 1 1 auto; }
+    .advisor .name { font-weight: 700; }
+    .advisor .links a { margin-right: 6px; }
+
+    /* ---------- footer ---------- */
+    footer {
+      margin-top: 50px;
+      padding-top: 14px;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-size: 12.5px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    footer a { color: var(--muted); }
+    footer a:hover { color: var(--text-soft); }
+
+    /* ---------- responsive ---------- */
+    @media (max-width: 680px) {
+      header.intro { flex-direction: column; gap: 18px; }
+      header.intro .portrait,
+      header.intro .portrait img.photo,
+      header.intro .portrait img.logo { width: 160px; }
+      header.intro .portrait img.photo { height: 192px; }
+      .pub { flex-direction: column; gap: 10px; }
+      .pub .teaser, .pub .teaser img { width: 100%; }
+      .pub .teaser img { height: auto; aspect-ratio: 16/10; }
+      .proj { flex-direction: column; gap: 4px; }
+      .proj .when { flex: none; }
+      .advisor { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- ============== HEADER ============== -->
+    <header class="intro">
+      <div class="portrait">
+        <img class="photo" src="assets/photo.jpg" alt="Yutong Wang" />
+        <img class="logo" src="assets/lanzhouuniversity.jpeg" alt="Lanzhou University" />
+      </div>
+      <div class="info">
+        <h1>Yutong Wang <span class="cn">王宇彤</span></h1>
+        <div class="affil">
+          <span class="role">Undergraduate Researcher,</span><br/>
+          School of Information Science and Engineering,<br/>
+          <a href="https://en.lzu.edu.cn/">Lanzhou University</a>, Lanzhou, China.
+        </div>
+        <div class="contact">
+          <div><span class="lbl">E-mail:</span> <a href="mailto:yutongwang2023@lzu.edu.cn">yutongwang2023 [at] lzu.edu.cn</a></div>
+          <div><span class="lbl">Office:</span> School of Information Science &amp; Engineering, Lanzhou University</div>
+        </div>
+        <div class="links">
+          <a href="https://scholar.google.com/citations?hl=en&amp;authuser=1&amp;user=73MjwF0AAAAJ">Google Scholar</a>
+          <span class="sep">/</span>
+          <a href="https://orcid.org/0009-0000-0722-630X">ORCID</a>
+          <span class="sep">/</span>
+          <a href="https://github.com/EMOILERE">GitHub</a>
+          <span class="sep">/</span>
+          <a href="mailto:yutongwang2023@lzu.edu.cn">Email</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============== BIO ============== -->
+    <div class="bio">
+      <p>
+        I am a senior undergraduate student in <span class="highlight">Computer Science and Technology</span>
+        at <a href="https://en.lzu.edu.cn/">Lanzhou University</a>, fortunate to be advised by
+        <a href="https://github.com/kanglzu">Associate Prof. Zhongfeng Kang</a>.
+        My research lies at the intersection of <span class="highlight">trustworthy deep learning</span>
+        and <span class="highlight">scientific discovery</span>, with a particular interest in
+        embedding physical, topological, and dynamical priors into neural architectures so that they
+        deliver interpretable and reliable solutions on safety-critical tasks.
+      </p>
+      <p>
+        To date, I have authored or co-authored <span class="highlight">8 SCI-indexed manuscripts</span>,
+        including <span class="highlight">5 first-author submissions to SCI&nbsp;Q1 journals</span>
+        (4 already published or accepted in <i>Neurocomputing</i>, <i>Expert Systems with Applications</i>,
+        and <i>Knowledge-Based Systems</i>). I have also served as a core member of two
+        National-Level College Student Innovation and Entrepreneurship Programs.
+      </p>
+      <p>
+        <b>Research Interests:</b> Agentic AI, Explainability Analysis, AI for Science (AI4Science),
+        and 3D Computer Vision.
+      </p>
+    </div>
+
+    <!-- ============== NEWS ============== -->
+    <h2 class="section">News</h2>
+    <table class="news">
+      <tr>
+        <td class="date">2026.05</td>
+        <td><span class="new">[New]</span> Our paper <i>MSK-Net: Multi-Scale Spatial KANs Enhanced U-Shape Network for Explainable 3D Brain Tumor Segmentation</i> is <b>accepted</b> by <i>Knowledge-Based Systems</i> (SCI Q1 Top, IF&nbsp;7.6).</td>
+      </tr>
+      <tr>
+        <td class="date">2026.04</td>
+        <td>Our paper <i>HMP-Net: A Hierarchical Multi-Prior Network for Brain Tumor Segmentation</i> appears in <i>Neurocomputing</i> (Vol.&nbsp;691).</td>
+      </tr>
+      <tr>
+        <td class="date">2026.04</td>
+        <td>Our co-authored paper <i>When Comments Aren&rsquo;t What They Seem</i> appears in <i>Expert Systems with Applications</i> (Vol.&nbsp;305).</td>
+      </tr>
+      <tr>
+        <td class="date">2026.02</td>
+        <td>Our paper on <i>KAN-Boosted Chinese Online Abuse Detection (SenTox-GLDA)</i> appears in <i>Expert Systems with Applications</i>.</td>
+      </tr>
+      <tr>
+        <td class="date">2026.02</td>
+        <td>Our co-authored paper <i>ResKANNet</i> appears in <i>Neurocomputing</i> (Vol.&nbsp;664).</td>
+      </tr>
+    </table>
+
+    <!-- ============== RESEARCH INTERESTS ============== -->
+    <h2 class="section">Research Interests</h2>
+    <ul class="interests">
+      <li><b>Agentic AI</b> &mdash; multi-agent workflows, tool-use, GraphRAG-augmented decision pipelines, vertical-domain LLM systems.</li>
+      <li><b>Explainability Analysis</b> &mdash; mechanistic interpretability, prior-knowledge fusion, and post-hoc reasoning for safety-critical AI.</li>
+      <li><b>AI for Science (AI4Science)</b> &mdash; embedding physical, topological, and dynamical priors (e.g., reaction&ndash;diffusion, Betti numbers) into deep models.</li>
+      <li><b>3D Computer Vision</b> &mdash; volumetric medical image analysis, multi-modal MRI fusion, explainable 3D segmentation architectures.</li>
+    </ul>
+
+    <!-- ============== PUBLICATIONS ============== -->
+    <h2 class="section">Publications</h2>
+    <p style="font-size: 13.5px; color: var(--text-soft); margin-top: -4px;">
+      <span class="me" style="font-weight:700;text-decoration:underline;">Underlined</span> name denotes mine;
+      <span class="corr">bold</span> name denotes corresponding author;
+      <sup>*</sup> denotes equal contribution.
+      The full list of papers is available on
+      <a href="https://scholar.google.com/citations?hl=en&amp;authuser=1&amp;user=73MjwF0AAAAJ">Google Scholar</a>.
+    </p>
+
+    <h3 class="year">2026</h3>
+
+    <div class="pub">
+      <div class="teaser"><img src="assets/paper_figure/msknet/frame.png" alt="MSK-Net framework" /></div>
+      <div class="meta">
+        <span class="title">MSK-Net: Multi-Scale Spatial KANs Enhanced U-Shape Network for Explainable 3D Brain Tumor Segmentation</span>
+        <span class="authors"><span class="me">Yutong Wang</span>, <span class="corr">Zhongfeng Kang</span>, et al.</span>
+        <span class="venue"><i>Knowledge-Based Systems</i>, 2026.</span>
+        <span class="badge q1">SCI Q1 Top &middot; IF 7.6</span>
+        <span class="badge accepted">Accepted</span>
+        <span class="tldr">Spatial KAN blocks, KAN-based attention, and cross-scale gated mechanism for interpretable 3D brain tumor segmentation.</span>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="teaser"><img src="assets/paper_figure/hmpnet/overall.png" alt="HMP-Net overall" /></div>
+      <div class="meta">
+        <span class="title">HMP-Net: A Hierarchical Multi-Prior Network for Brain Tumor Segmentation Integrating Physics, Topology, and Tumor Dynamics</span>
+        <span class="authors"><span class="me">Yutong Wang</span>, <span class="corr">Zhongfeng Kang</span>, Jiaxue Yang, Shantian Yang, Qinghua Zhao, Zichen Song.</span>
+        <span class="venue"><i>Neurocomputing</i>, Vol. 691, 133827, 2026.</span>
+        <span class="badge q1">SCI Q1 &middot; IF 6.2</span>
+        <span class="links">
+          <a href="https://doi.org/10.1016/j.neucom.2026.133827">[DOI]</a>
+          <a href="https://www.sciencedirect.com/science/article/pii/S0925231226012245">[Paper]</a>
+          <a href="https://github.com/kanglzu/hmp_net">[Code]</a>
+        </span>
+        <span class="tldr">A theory-guided hierarchical architecture combining MRI physical signal encoding, differentiable Betti numbers, and reaction&ndash;diffusion dynamics.</span>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="teaser"><img src="assets/paper_figure/sentox_glda/frame.png" alt="SenTox-GLDA framework" /></div>
+      <div class="meta">
+        <span class="title">KAN-Boosted Chinese Online Abuse Detection Framework with Sentiment and Toxicity Fusion through Global-Local-Differential Attention</span>
+        <span class="authors"><span class="me">Yutong Wang</span>, <span class="corr">Zhongfeng Kang</span>, Jiaxue Yang, Xiaopeng Fan, Zijin Wu, Shantian Yang, Qinghua Zhao, Zichen Song.</span>
+        <span class="venue"><i>Expert Systems with Applications</i>, 132732, 2026.</span>
+        <span class="badge q1">SCI Q1 Top &middot; IF 7.5</span>
+        <span class="links">
+          <a href="https://doi.org/10.1016/j.eswa.2026.132732">[DOI]</a>
+          <a href="https://www.sciencedirect.com/science/article/pii/S0957417426016453">[Paper]</a>
+          <a href="https://github.com/kanglzu/SenTox-GLDA">[Code]</a>
+        </span>
+        <span class="tldr">Dual-encoder sentiment&ndash;toxicity fusion with Global-Local-Differential Attention and a KAN classification head; Macro-F1 82.56% on COLDataset.</span>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="teaser"><img src="assets/paper_figure/when_comments/pipeline.png" alt="ICL-DiTox pipeline" /></div>
+      <div class="meta">
+        <span class="title">When Comments Aren&rsquo;t What They Seem: The Social Media Comment Toxicity Detector for Understanding Contextual Comments</span>
+        <span class="authors">Zichen Song, Xiaopeng Fan, <span class="me">Yutong Wang</span>, Feixuan Yan, Zijin Wu, <span class="corr">Zhongfeng Kang</span>.</span>
+        <span class="venue"><i>Expert Systems with Applications</i>, Vol. 305, 130902, 2026.</span>
+        <span class="badge q1">SCI Q1 Top &middot; IF 7.5</span>
+        <span class="links">
+          <a href="https://doi.org/10.1016/j.eswa.2025.130902">[DOI]</a>
+          <a href="https://www.sciencedirect.com/science/article/pii/S0957417425045178">[Paper]</a>
+          <a href="https://github.com/kanglzu/When-Comments-Aren-t-What-They-Seem">[Code]</a>
+        </span>
+        <span class="tldr">Context-aware ICL framework: GPT-driven dialogue expansion turns isolated comments into multi-turn threads; +4.8% over Perspective API on YouTube.</span>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="teaser"><img src="assets/paper_figure/reskannet/overall.png" alt="ResKANNet overall" /></div>
+      <div class="meta">
+        <span class="title">ResKANNet: A Residual Kolmogorov&ndash;Arnold Network with Multi-Scale Attention for Brain Tumor Segmentation</span>
+        <span class="authors">Zhengyi Li, <span class="corr">Zhongfeng Kang</span>, <span class="me">Yutong Wang</span>, Xinyu Kang, Shantian Yang, Qinghua Zhao.</span>
+        <span class="venue"><i>Neurocomputing</i>, Vol. 664, 132062, 2026.</span>
+        <span class="badge q1">SCI Q1 &middot; IF 6.2</span>
+        <span class="links">
+          <a href="https://doi.org/10.1016/j.neucom.2025.132062">[DOI]</a>
+          <a href="https://www.sciencedirect.com/science/article/pii/S0925231225027341">[Paper]</a>
+        </span>
+        <span class="tldr">Selective KAN placement and residual 3D U-shape with hybrid EMCAM/CBAM3D attention; 90.95% Dice on BraTS2021.</span>
+      </div>
+    </div>
+
+    <!-- ============== PROJECTS ============== -->
+    <h2 class="section">Research Projects</h2>
+
+    <div class="proj">
+      <div class="when">2025.03 &ndash; 2025.12</div>
+      <div class="body">
+        <span class="ptitle">Multi-Agent Systems and Workflow Applications</span>
+        <span class="ptag">National-Level College Student Innovation and Entrepreneurship Program &middot; Core Designer</span>
+        Designed a role-decoupled multi-agent collaboration framework on the Coze workflow engine, deployed across four vertical domains: time management, multi-modal exam grading, tourism planning, and medical consultation (GraphRAG&nbsp;+&nbsp;Neo4j).
+        <div class="outcome">Outcomes: 1 patent (under examination) &middot; 7 software copyrights &middot; multiple discipline competition awards.</div>
+      </div>
+    </div>
+
+    <div class="proj">
+      <div class="when">2025.03 &ndash; 2026.01</div>
+      <div class="body">
+        <span class="ptitle">Efficient and Explainable 3D Multi-Modal Brain Tumor Segmentation</span>
+        <span class="ptag">Research Project &middot; First Author / Lead Investigator</span>
+        Proposed three complementary architectures &mdash; <i>MSK-Net</i>, <i>M&sup2;F-Net</i>, and <i>HMP-Net</i> &mdash; integrating spatial KANs, morphology-guided attention, and hierarchical multi-priors (MRI physics, topology, FK tumor dynamics). State-of-the-art on BraTS&nbsp;2021&nbsp;/&nbsp;2018.
+        <div class="outcome">Outcomes: 3 SCI papers (1 Q1 Top accepted, 2 under review) &middot; 1 patent.</div>
+      </div>
+    </div>
+
+    <div class="proj">
+      <div class="when">2023.12 &ndash; 2025.01</div>
+      <div class="body">
+        <span class="ptitle">Multi-Modal Toxicity Moderation for Social Media in the New Era</span>
+        <span class="ptag">National-Level College Student Innovation and Entrepreneurship Program &middot; First / Co-First Author</span>
+        Developed <i>SenTox-GLDA</i> (BERT&nbsp;+&nbsp;RoBERTa dual-encoder with KAN-refined decision boundary) and <i>ICL-DiTox</i> (GPT-simulated multi-turn dialogue expansion); built a multilingual, multi-platform corpus of 5,000+ multi-level comments.
+        <div class="outcome">Outcomes: Macro-F1 82.56% on COLDataset &middot; +4.8% over Perspective API on YouTube &middot; 2 ESWA Q1 Top papers &middot; 1 patent.</div>
+      </div>
+    </div>
+
+    <!-- ============== EDUCATION ============== -->
+    <h2 class="section">Education</h2>
+    <div class="proj">
+      <div class="when">2023.09 &ndash; present</div>
+      <div class="body">
+        <span class="ptitle">B.Eng. in Computer Science and Technology</span>
+        <span class="ptag">School of Information Science and Engineering, Lanzhou University</span>
+        GPA: 4.237&nbsp;/&nbsp;5.0 &middot; Rank: 3&nbsp;/&nbsp;117 (Top&nbsp;2%) &middot; CET-4: 617 &middot; CET-6: 633.
+        <div class="outcome">Selected coursework: Computer Programming (97), Information System Analysis (97), Data Mining (97), Neural Networks and Deep Learning (96), Database Management Systems (96).</div>
+      </div>
+    </div>
+
+    <!-- ============== ADVISOR ============== -->
+    <h2 class="section">Advisor</h2>
+    <div class="advisor">
+      <div class="body">
+        I am fortunate to be advised by
+        <span class="name">Associate Prof. Zhongfeng Kang</span>
+        (康仲锋), School of Information Science and Engineering, Lanzhou University.
+        <div class="links" style="margin-top: 6px;">
+          <a href="https://github.com/kanglzu">GitHub</a> /
+          <a href="https://scholar.google.com/citations?user=gW2rG8oAAAAJ&amp;hl=en&amp;authuser=1">Google Scholar</a> /
+          <a href="https://orcid.org/0000-0001-9025-0748">ORCID: 0000-0001-9025-0748</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============== HONORS ============== -->
+    <h2 class="section">Honors and Awards</h2>
+    <table class="awards">
+      <tr>
+        <td class="level">International</td>
+        <td>
+          Second Prize, Global Campus Artificial Intelligence Algorithm Elite Competition &mdash; Algorithm Innovation Track.
+          <span class="cn">全球校园人工智能算法精英大赛 · 算法创新赛 · 国际二等奖</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="level">International</td>
+        <td>
+          Second Prize, Asia and Pacific Mathematical Contest in Modeling (APMCM).
+          <span class="cn">亚太地区大学生数学建模竞赛 · 国际二等奖</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="level">International</td>
+        <td>
+          Third Prize, Global Campus Artificial Intelligence Algorithm Elite Competition &mdash; Algorithm Specialized Track.
+          <span class="cn">全球校园人工智能算法精英大赛 · 算法专项赛 · 国际三等奖</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="level">National</td>
+        <td>
+          Second Prize, National English Competition for College Students (NECCS).
+          <span class="cn">全国大学生英语竞赛 · 国家二等奖</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="level">Provincial</td>
+        <td>
+          First Prize, China International College Students&rsquo; Innovation Competition.
+          <span class="cn">中国国际大学生创新大赛 · 省级一等奖</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="level">National</td>
+        <td>
+          <b>National Scholarship</b>.
+          <span class="cn">国家奖学金</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="level">University</td>
+        <td>
+          Outstanding Student Scholarship; Innovation and Entrepreneurship Scholarship; First-Class University Scholarship;
+          Learning Pacesetter; Outstanding Communist Youth League Member.
+          <span class="cn">优秀学生奖学金 · 创新创业奖学金 · 校一等奖学金 · 学习标兵 · 优秀共青团员</span>
+        </td>
+      </tr>
+    </table>
+
+    <!-- ============== FOOTER ============== -->
+    <footer>
+      <div>&copy; 2026 Yutong Wang. All rights reserved.</div>
+      <div>Last updated: May 2026. Hosted on <a href="https://github.com/EMOILERE/EMOILERE.github.io">GitHub Pages</a>.</div>
+    </footer>
+  </div>
+</body>
+</html>
